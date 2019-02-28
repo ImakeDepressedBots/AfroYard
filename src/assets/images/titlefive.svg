@@ -1,0 +1,14 @@
+<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text style="cursor: text;" stroke="#000" transform="matrix(1.0930193662643433,0,0,1.291262149810791,-8.325233280658722,-26.9189940020442) " xml:space="preserve" text-anchor="start" font-family="Arvo, sans-serif" font-size="84" id="svg_1" y="173.421875" x="89.5" stroke-width="0" fill="#ffffff">AfroYard</text>
+ </g>
+</svg>

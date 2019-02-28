@@ -1,0 +1,406 @@
+*:focus{
+  outline: none;
+}
+.overlay{
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height:100vh;
+}
+
+.fixedButtons{
+  position: relative;
+  width: 100%;
+  background-color: red;
+}
+
+.leftfixedbutton{
+  position: absolute;
+  height: 70px;
+  background-color: transparent;
+  border: 2px solid #d0d7e5;
+  border-radius: 35px;
+  padding-left: 80px;
+  padding-right: 35px;
+  color: #fff;
+  transition: background-color 200ms ease-in-out;
+}
+.menuButton{
+  position: absolute;
+  left: 45px;
+  padding-top: 45px;
+  width:150px;
+  z-index: 3;
+}
+.obuttoniconleftwrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 3;
+    margin: 8px;
+}
+.obuttoniconleft{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+  transition: transform 200ms ease-in-out;
+}
+.leftfixedbutton:hover .obuttoniconleft{
+  transform: rotate(90deg);
+}
+.buttonleftlabel{
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    font-size: 20px;
+    opacity: 0;
+    margin-bottom: .125em;
+    width: 100%;
+    transform: translateX(-20px);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+.leftfixedbutton:hover .buttonleftlabel{
+  opacity: 1;
+  transform: translateX(0px);
+}
+.leftfixedbutton:hover{
+  background-color: #606266;
+}
+.rightfixedbutton{
+  position: absolute;
+  height: 70px;
+  background-color: transparent;
+  border: 2px solid #d0d7e5;
+  border-radius: 35px;
+  padding-left: 80px;
+  padding-right: 35px;
+  color: #fff;
+  transition: background-color 200ms ease-in-out;
+}
+.cartButton{
+  position: absolute;
+  right: 45px;
+  padding-top: 45px;
+  width:150px;
+  z-index: 3;
+  outline: none;
+}
+.obuttoniconrightwrapper{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 3;
+    margin: 8px;
+}
+.obuttoniconright{
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  margin-right: -10px;
+  margin-top: -10px;
+}
+
+.buttonrightlabel{
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+    font-size: 20px;
+    opacity: 0;
+    margin-bottom: .125em;
+    width: 100%;
+    transform: translateX(0px);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+.rightfixedbutton:hover .buttonrightlabel{
+  opacity: 1;
+  transform: translateX(-50px);
+}
+.rightfixedbutton:hover{
+  background-color: #606266;
+}
+
+
+.sidenav {
+    position:relative;
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenavcontentwrapper{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -125px;
+  margin-top: -150px;
+  width: 250px;
+  height: 350px;
+  font-size: 1rem;
+}
+.sidenavcontentwrapper a{
+  color: inherit;
+  text-decoration: none;
+  text-decoration-style: none;
+
+}
+
+.navlist{
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.navlist li{
+  display: list-item;
+    text-align:center;
+    height: 100%;
+    padding-top: 60px;
+    font-size: 40px;
+    font-family: 'Libre Baskerville', serif;
+}
+.navItem1:hover{
+  color: #88e8be;
+}
+
+.navItem2:hover{
+  color: #9ca4d8;
+}
+.navItem3:hover{
+  color:#ffa8a8;
+}
+.navItem4:hover{
+  color: orange;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.cartcheckoutnav {
+    position:relative;
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+.tabs {
+	clear: both;
+	position: relative;
+   max-width: 650px;
+   margin: 0 auto;
+   /* you can either manually set a min-height here or do it via JS ---> */
+}
+
+.tab {
+	float: left;
+}
+
+.tab label {
+	margin-right: 20px;
+	position: relative;
+	top: 0;
+	cursor: pointer;
+	color: #333;
+   text-transform: uppercase;
+}
+
+.tab [type=radio] {
+	display: none;
+}
+
+.tab__content {
+   position: relative;
+	top: 40px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: opacity .2s cubic-bezier(.42,0,.34,1.01);
+	opacity: 0;
+}
+
+[type=radio]:checked ~ label {
+	border-bottom: 2px solid #1d1d1d;
+	color: #1d1d1d;
+	z-index: 2;
+}
+
+[type=radio]:checked ~ label ~ .tab__content {
+	z-index: 1;
+	opacity: 1;
+}
+
+.landing {
+    transition: margin-left .5s;
+    position: absolute;
+    padding: 20px;
+    overflow:hidden;
+    width:100%;
+    height: 100%;
+}
+.landingWrapper {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+  background-color: #d0d7e5;
+}
+.logolarge{
+  position: absolute;
+  top: 0;
+  margin-top: -100px;
+  width: 700px;
+  height: 300px;
+  left: 53%;
+  margin-left: -350px;
+  background-color: #d0d7e5 ;
+  transform: scale(1);
+  transition: all 100ms ease-in-out;
+}
+.logolarge:hover{
+  transform: scale(1.2);
+}
+
+.titlelogo{
+  position: absolute;
+  top: 0;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+a svg{
+  transition:all .5s ease;
+
+  &:hover{
+    #transform:rotate(180deg);
+  }
+}
+
+#ico{
+  display: none;
+}
+.menu{
+  background: #000;
+  display: none;
+  padding: 5px;
+  width: 320px;
+  @include border-radius(5px);
+
+  #transition: all 0.5s ease;
+
+  a{
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 10px 2px;
+    margin: 3px 0;
+    text-decoration: none;
+    background: #444;
+
+    &:nth-child(1){
+      margin-top: 0;
+      @include border-radius(3px 3px 0 0 );
+    }
+    &:nth-child(5){
+      margin-bottom: 0;
+      @include border-radius(0 0 3px 3px);
+    }
+
+    &:hover{
+      background: #555;
+    }
+  }
+}
+.headingwords{
+    text-align: center;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 300;
+    font-size: 80px;
+    margin: 0 auto;
+    max-width: 50rem;
+    line-height: 1.15;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+.is-showing .headingwords{
+  opacity: 1;
+  /* transition: all 0.2s ease-in-out; */
+}
+
+.homecontent{
+  position: absolute;
+  bottom: 0;
+  height: 60%;
+  width: 100%;
+}
+.featuredbuttonbottom{
+  position: absolute;
+  text-align: center;
+  bottom: 8%;
+  height: 70px;
+  border: 2px solid #d0d7e5;
+  border-radius: 35px;
+  padding-left: 80px;
+  padding-right: 35px;
+  background-color: #606266;
+  left: 50%;
+  margin-left: -100px;
+  width:200px;
+  transform: scale(1);
+  transition: all 100ms ease-in-out;
+}
+.featuredbuttonlabel{
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  font-size: 20px;
+  opacity: 1;
+  margin-left: -125px;
+  left: 50%;
+  margin-bottom: .125em;
+  width: 100%;
+}
+.featuredbuttonbottom:hover{
+  background-color: black;
+  transform: scale(1.1);
+}
+.featuredbuttonbottom:hover .featuredbuttonlabel{
+  color: white;
+}
+.featuredwrapper h1{
+  color: red;
+}
+.productcontent{
+  border: 5px solid black;
+}

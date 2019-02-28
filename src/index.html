@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="scripts/semantic-ui-css/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="./styles/landing.css">
+  <link rel="stylesheet" type="text/css" href="./styles/featured.css">
+  <link rel="stylesheet" type="text/css" href="./styles/shop.css">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+  <base href="/">
+  <title>AfroYard</title>
+</head>
+<body>
+  <div id="app">
+  </div>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+<script src="app/firebaseconfigs.js">
+  // // Initialize Firebase
+  // var config = {
+  //   apiKey: "AIzaSyCsMrvtggpyOqep2OLsLcZzfdGXI-VbiGg",
+  //   authDomain: "afroyardshop.firebaseapp.com",
+  //   databaseURL: "https://afroyardshop.firebaseio.com",
+  //   projectId: "afroyardshop",
+  //   storageBucket: "",
+  //   messagingSenderId: "528740121881"
+  // };
+  // firebase.initializeApp(config);
+</script>
+  <script id="error-template" type="text/x-handlebars-template">
+  <div class="ui {{color}} inverted segment" style="height:250px;">
+    <br>
+    <h2 class="ui center aligned icon header">
+      <i class="exclamation triangle icon"></i>
+      <div class="content">
+        {{title}}
+        <div class="sub header">{{message}}</div>
+      </div>
+    </h2>
+  </div>
+  </script>
+  <script id="featured-template" type="text/x-handlebars-template">
+    <div class="landingWrapper">
+      <div class="overlay" id="overlay">
+
+      </div>
+      <header class="fixedButtons">
+        <div class="menuButton">
+          <button type="button" class="leftfixedbutton" id="leftfixedbutton">
+            <span class="obuttoniconleftwrapper" id="obuttoniconleftwrapper">
+              <span class="obuttoniconleft" id="obuttoniconleft">
+                <img id="opennavicon" src="assets/images/menuicotwo.svg" width="50px" height="50px">
+              </span>
+            </span>
+            <span class="buttonleftlabel" id="buttonleftlabel">Menu</span>
+          </button>
+        </div>
+        <div class="cartButton">
+          <button type="button" class="rightfixedbutton" id="rightfixedbutton" onclick="">
+            <span class="obuttoniconrightwrapper" id="obuttoniconrightwrapper">
+              <span class="obuttoniconright" id="obuttoniconright">
+                <img id="opencartcheckouticon" src="assets/images/shoppingbag.svg" width="20px" height="20px">
+              </span>
+            </span>
+            <span class="buttonrightlabel" id="buttonrightlabel">Cart</span>
+          </button>
+        </div>
+      </header>
+      <div id="sideNavigation" class="sidenav">
+        <div class="sidenavcontentwrapper">
+          <ul class="navlist">
+            <div class="navItem1">
+              <li href="/">Featured</li>
+            </div>
+            <div class="navItem2">
+              <a href="/shop">
+                <li href="/shop">Shop</li>
+              </a>
+            </div>
+            <div class="navItem3">
+              <a href="/contact">
+                <li href="/contact">Contact Us</li>
+              </a>
+            </div>
+            <div class="navItem4">
+              <a href="/about">
+                <li href="/about">About</li>
+              </a>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="cartcheckoutnav" id="cartcheckoutnav">
+      <div data-tabs class="tabs">
+      <div class="tab">
+        <input type="radio" name="tabgroup" id="tab-1" checked>
+        <label for="tab-1">Tab 1</label>
+        <div class="tab__content">
+           <h4>Tab heading 1</h4>
+           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt libero ipsum, veniam magni modi exercitationem debitis ducimus assumenda ratione corporis, illum eius, laborum tempore cumque amet id perspiciatis nostrum unde?</p>
+           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum, maiores.</p>
+        </div>
+     </div>
+     <div class="tab">
+        <input type="radio" name="tabgroup" id="tab-2">
+        <label for="tab-2">Tab 2</label>
+        <div class="tab__content">
+           <h4>Tab heading 2</h4>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur odio cum eveniet excepturi eum provident molestias ad ipsa unde dignissimos illo porro animi earum aliquam perspiciatis id omnis, adipisci incidunt. Qui, beatae. Beatae animi totam obcaecati at quae, iste facere fuga nemo pariatur esse nihil?</p>
+           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque commodi eos voluptatem numquam pariatur deleniti repellat fugiat eligendi nulla molestiae sunt praesentium vero sequi distinctio error quibusdam maiores natus magnam, explicabo hic sed alias dolores, quis eum! Reprehenderit atque cupiditate dolorum? Saepe, doloribus veniam? Nulla!</p>
+        </div>
+     </div>
+     <div class="tab">
+        <input type="radio" name="tabgroup" id="tab-3">
+        <label for="tab-3">Tab 3</label>
+        <div class="tab__content">
+           <h4>Tab heading 3</h4>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam officiis voluptas maiores deserunt ullam aliquam?</p>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, officia accusantium quod fuga porro eius animi earum excepturi omnis! Reprehenderit!</p>
+        </div>
+     </div>
+     <div class="tab">
+        <input type="radio" name="tabgroup" id="tab-4">
+        <label for="tab-4">Tab 4</label>
+        <div class="tab__content">
+           <h4>Tab heading 4</h4>
+           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia exercitationem veritatis vero eaque. Nam totam dolorem sapiente ullam non sed nostrum praesentium voluptatem, ad quam libero deserunt nemo fuga hic repudiandae veritatis cupiditate, mollitia recusandae!</p>
+        </div>
+     </div>
+    </div>
+      </div>
+      <div id="landing" class="landing">
+        <div class="logolarge">
+          <a class="homenav" href="">
+            <span class="titlelogo">
+              <img src="assets/images/titlefive.svg" alt="" width="700px" height="500px">
+            </span>
+          </a>
+        </div>
+        <div class="homecontent">
+          <p id="headingwords" class="headingwords">
+            <span>Bringing </span>
+            <span>Africa </span>
+            <span>To </span>
+            <span>You</span>
+          </p>
+        </div>
+        <div class="featuredbutton">
+          <button type="button" class="featuredbuttonbottom">
+            <span class="featuredbuttonlabel">Featured</span>
+          </button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </script>
+  <script id="Shop-template" type="text/x-handlebars-template">
+    <!-- should probably reuse a template here lol  -->
+    <div class="shopwrapper">
+      <header class="fixedButtons">
+        <div class="menuButton">
+          <button type="button" class="leftfixedbutton" id="leftfixedbutton">
+            <span class="obuttoniconleftwrapper" id="obuttoniconleftwrapper">
+              <span class="obuttoniconleft" id="obuttoniconleft">
+                <img id="opennavicon" src="assets/images/menuicotwo.svg" width="50px" height="50px">
+              </span>
+            </span>
+            <span class="buttonleftlabel" id="buttonleftlabel">Menu</span>
+          </button>
+        </div>
+        <div class="cartButton">
+          <button type="button" class="rightfixedbutton" id="rightfixedbutton" onclick="">
+            <span class="obuttoniconrightwrapper" id="obuttoniconrightwrapper">
+              <span class="obuttoniconright" id="obuttoniconright">
+                <img id="opencartcheckouticon" src="assets/images/shoppingbag.svg" width="20px" height="20px">
+              </span>
+            </span>
+            <span class="buttonrightlabel" id="buttonrightlabel">Cart</span>
+          </button>
+        </div>
+      </header>
+      <div id="sideNavigation" class="sidenav">
+        <div class="sidenavcontentwrapper">
+          <ul class="navlist">
+            <div class="navItem1">
+              <li href="/">Featured</li>
+            </div>
+            <div class="navItem2">
+              <a href="/shop">
+                <li href="/shop">Shop</li>
+              </a>
+            </div>
+            <div class="navItem3">
+              <a href="/contact">
+                <li href="/contact">Contact Us</li>
+              </a>
+            </div>
+            <div class="navItem4">
+              <a href="/about">
+                <li href="/about">About</li>
+              </a>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="cartcheckoutnav" id="cartcheckoutnav">
+      <div data-tabs class="tabs">
+      <div class="tab">
+        <input type="radio" name="tabgroup" id="tab-1" checked>
+        <label for="tab-1">Tab 1</label>
+        <div class="tab__content">
+           <h4>Tab heading 1</h4>
+           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt libero ipsum, veniam magni modi exercitationem debitis ducimus assumenda ratione corporis, illum eius, laborum tempore cumque amet id perspiciatis nostrum unde?</p>
+           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum, maiores.</p>
+        </div>
+     </div>
+     <div class="tab">
+        <input type="radio" name="tabgroup" id="tab-2">
+        <label for="tab-2">Tab 2</label>
+        <div class="tab__content">
+           <h4>Tab heading 2</h4>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur odio cum eveniet excepturi eum provident molestias ad ipsa unde dignissimos illo porro animi earum aliquam perspiciatis id omnis, adipisci incidunt. Qui, beatae. Beatae animi totam obcaecati at quae, iste facere fuga nemo pariatur esse nihil?</p>
+           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque commodi eos voluptatem numquam pariatur deleniti repellat fugiat eligendi nulla molestiae sunt praesentium vero sequi distinctio error quibusdam maiores natus magnam, explicabo hic sed alias dolores, quis eum! Reprehenderit atque cupiditate dolorum? Saepe, doloribus veniam? Nulla!</p>
+        </div>
+     </div>
+     <div class="tab">
+        <input type="radio" name="tabgroup" id="tab-3">
+        <label for="tab-3">Tab 3</label>
+        <div class="tab__content">
+           <h4>Tab heading 3</h4>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam officiis voluptas maiores deserunt ullam aliquam?</p>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, officia accusantium quod fuga porro eius animi earum excepturi omnis! Reprehenderit!</p>
+        </div>
+     </div>
+     <div class="tab">
+        <input type="radio" name="tabgroup" id="tab-4">
+        <label for="tab-4">Tab 4</label>
+        <div class="tab__content">
+           <h4>Tab heading 4</h4>
+           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia exercitationem veritatis vero eaque. Nam totam dolorem sapiente ullam non sed nostrum praesentium voluptatem, ad quam libero deserunt nemo fuga hic repudiandae veritatis cupiditate, mollitia recusandae!</p>
+        </div>
+     </div>
+    </div>
+      </div>
+      <div class="shopNav">
+        <div class="shopnavcontentwrapper">
+          <ul class="shopnavlist">
+            <div class="shopnavItem1">
+              <li href="/">Art</li>
+            </div>
+            <div class="shopnavItem1highlighter">
+            </div>
+            <div class="shopnavItem2">
+              <a href="/shop">
+                <li href="/shop">Accessories</li>
+              </a>
+            </div>
+            <div class="shopnavItem3">
+              <a href="/contact">
+                <li href="/contact">Furniture</li>
+              </a>
+            </div>
+            <div class="shopnavItem4">
+              <a href="/about">
+                <li href="/about">Clothing</li>
+              </a>
+            </div>
+            <div class="shopnavItem4">
+              <a href="/about">
+                <li href="/about">Carvings</li>
+              </a>
+            </div>
+            <div class="shopnavItem4">
+              <a href="/about">
+                <li href="/about">Artisan</li>
+              </a>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="artcontent">
+        <div class="productList">
+          <div class="section group">
+	          <div class="col span_1_of_3">
+	            <div class="productcontent">
+                <img src="assets/images/art1.jpeg" width="230px"></img>
+                <span class=""> starring night</span>
+                <span class="">Two million </span>
+              </div>
+	          </div>
+	          <div class="col span_1_of_3">
+              <div class="productcontent">
+                <img src="assets/images/art1.jpeg" width="230px"></img>
+                <span class=""> starring night</span>
+                <span class="">Two million </span>
+              </div>
+	          </div>
+	          <div class="col span_1_of_3">
+              <div class="productcontent">
+                <img src="assets/images/art1.jpeg" width="230px"></img>
+                <span class=""> starring night</span>
+                <span class="">Two million </span>
+              </div>
+	          </div>
+          </div>
+          <div class="section group">
+	          <div class="col span_1_of_3">
+              <div class="productcontent">
+                <img src="assets/images/art1.jpeg" width="230px"></img>
+                <span class=""> starring night</span>
+                <span class="">Two million </span>
+              </div>
+	          </div>
+	          <div class="col span_1_of_3">
+              <div class="productcontent">
+                <img src="assets/images/art1.jpeg" width="230px"></img>
+                <span class=""> starring night</span>
+                <span class="">Two million </span>
+              </div>
+	          </div>
+	          <div class="col span_1_of_3">
+              <div class="productcontent">
+                <img src="assets/images/art1.jpeg" width="230px"></img>
+                <span class=""> starring night</span>
+                <span class="">Two million </span>
+              </div>
+	          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script id="contact-template" type="text/x-handlebars-template">
+  <h1 class="ui header">Contact US</h1>
+  <hr>
+  </script>
+  <script id="about-template" type="text/x-handlebars-template">
+  <h1 class="ui header">About</h1>
+  <hr>
+  </script>
+  <!-- JS Library Dependencies -->
+
+  <script src="scripts/jquery/dist/jquery.min.js"></script>
+  <script src="scripts/semantic-ui-css/semantic.min.js"></script>
+  <script src="scripts/axios/dist/axios.min.js"></script>
+  <script src="scripts/handlebars/dist/handlebars.min.js"></script>
+  <script src="scripts/vanilla-router/dist/vanilla-router.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
